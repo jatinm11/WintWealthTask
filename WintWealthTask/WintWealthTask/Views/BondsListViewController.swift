@@ -10,6 +10,7 @@ import UIKit
 class BondsListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var viewModel: BondsListViewModel = BondsListViewModel()
     var dataSource = BondsListDataSource()
@@ -38,11 +39,13 @@ class BondsListViewController: UIViewController {
         viewModel.fetchBondsListFor(page: "\(page)")
         
         viewModel.updateUI = { [weak self] bondsList, error in
+            
             if let bondsList = bondsList {
                 DispatchQueue.main.async {
                     self?.dataSource.setBondsList(list: bondsList)
                     self?.tableView.reloadData()
                     self?.currentPage += 1
+                    self?.activityIndicator.stopAnimating()
                 }
             }
         }

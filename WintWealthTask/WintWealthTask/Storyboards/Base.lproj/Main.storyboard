@@ -20,11 +20,16 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="749"/>
                                 <color key="backgroundColor" name="BackgroundColor"/>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="pXZ-oD-qh5">
+                                <rect key="frame" x="186.66666666666666" y="416" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="V7D-KZ-KWK"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="McI-o2-gDy" secondAttribute="bottom" id="3C9-mw-l41"/>
+                            <constraint firstItem="pXZ-oD-qh5" firstAttribute="centerX" secondItem="Sif-f0-Q0x" secondAttribute="centerX" id="Bt1-M1-HmA"/>
+                            <constraint firstItem="pXZ-oD-qh5" firstAttribute="centerY" secondItem="Sif-f0-Q0x" secondAttribute="centerY" id="bzA-Ye-8JF"/>
                             <constraint firstItem="McI-o2-gDy" firstAttribute="leading" secondItem="V7D-KZ-KWK" secondAttribute="leading" id="pQ9-7J-bbh"/>
                             <constraint firstItem="McI-o2-gDy" firstAttribute="top" secondItem="V7D-KZ-KWK" secondAttribute="top" id="r70-jx-LDa"/>
                             <constraint firstItem="V7D-KZ-KWK" firstAttribute="trailing" secondItem="McI-o2-gDy" secondAttribute="trailing" id="rBD-C2-HIS"/>
@@ -32,6 +37,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="All Bonds" id="dRn-95-By9"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="pXZ-oD-qh5" id="TOM-g8-K8s"/>
                         <outlet property="tableView" destination="McI-o2-gDy" id="fz8-f0-abj"/>
                     </connections>
                 </viewController>
