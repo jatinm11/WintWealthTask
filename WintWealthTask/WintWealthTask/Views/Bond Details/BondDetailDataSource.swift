@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BondDetailDataSource: NSObject, UICollectionViewDataSource {
+class BondDetailCollectionViewDataSource: NSObject, UICollectionViewDataSource {
     
     var primaryDetails: [DetailObject] = []
     var secondaryDetails: [DetailObject] = []
@@ -19,6 +19,7 @@ class BondDetailDataSource: NSObject, UICollectionViewDataSource {
     func setSecondaryDetailsWith(list: [DetailObject]) {
         self.secondaryDetails = list
     }
+    
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
@@ -36,7 +37,6 @@ class BondDetailDataSource: NSObject, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         switch indexPath.section {
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BondDetailCell", for: indexPath) as! BondDetailCell
@@ -47,7 +47,7 @@ class BondDetailDataSource: NSObject, UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BondDetailCell", for: indexPath) as! BondDetailCell
             cell.detailObject = secondaryDetails[indexPath.item]
             return cell
-
+            
         default:
             return UICollectionViewCell()
         }
@@ -62,5 +62,29 @@ class BondDetailDataSource: NSObject, UICollectionViewDataSource {
         default:
             return UICollectionReusableView()
         }
+    }
+}
+
+
+class BondDetailTableViewDataSource: NSObject, UITableViewDataSource {
+    
+    var faqDetails: [DetailObject] = []
+    var delegate: FAQCellDelegate!
+    
+    func setFaqDetailsWith(list: [DetailObject]) {
+        self.faqDetails = list
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return faqDetails.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FAQCell", for: indexPath) as! FAQCell
+        cell.faqItemObject = faqDetails[indexPath.row]
+        cell.delegate = delegate
+        cell.indexPath = indexPath
+                
+        return cell
     }
 }

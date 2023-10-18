@@ -10,32 +10,60 @@ import UIKit
 class BondDetailViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var collectionViewHeightConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var tableView: UITableView!
     
     var viewModel = BondDetailsViewModel()
-    var bondDetailsdataSource = BondDetailDataSource()
+    var bondDetailCollectionViewDataSource = BondDetailCollectionViewDataSource()
+    var bondDetailTableViewDataSource = BondDetailTableViewDataSource()
+    
+    var expandedIndexPaths: [IndexPath] = []
     
     var isin: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.collectionView.register(UINib(nibName: "BondDetailCell", bundle: nil), forCellWithReuseIdentifier: "BondDetailCell")
-        self.collectionView.register(UINib(nibName: "TitleHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier:"TitleHeaderView")
      
+        setupCollectionView()
+        setupTableView()
+        setupViews()
+    }
+    
+    func setupCollectionView() {
+        self.collectionView.register(UINib(nibName: "TitleHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier:"TitleHeaderView")
+        self.collectionView.register(UINib(nibName: "BondDetailCell", bundle: nil), forCellWithReuseIdentifier: "BondDetailCell")
+        
+        self.collectionView.dataSource = self.bondDetailCollectionViewDataSource
+        self.collectionView.delegate = self
+    }
+    
+    func setupTableView() {
+        self.tableView.register(UINib(nibName: "FAQCell", bundle: nil), forCellReuseIdentifier: "FAQCell")
+        self.tableView.dataSource = self.bondDetailTableViewDataSource
+        
+        self.bondDetailTableViewDataSource.delegate = self
+        
+        self.tableView.estimatedRowHeight = 100
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.delegate = self
+    }
+    
+    func setupViews() {
         viewModel.fetchBondDetailsFor(isin: self.isin)
         viewModel.updateUI = { [weak self] bondDetailsResponse, error in
-            
             if let bondDetailsResponse = bondDetailsResponse {
                 DispatchQueue.main.async {
-                    self?.bondDetailsdataSource.setPrimaryDetailsWith(list: bondDetailsResponse.primaryDetails)
-                    self?.bondDetailsdataSource.setSecondaryDetailsWith(list: bondDetailsResponse.secondaryDetails)
+                    self?.bondDetailCollectionViewDataSource.setPrimaryDetailsWith(list: bondDetailsResponse.primaryDetails)
+                    self?.bondDetailCollectionViewDataSource.setSecondaryDetailsWith(list: bondDetailsResponse.secondaryDetails)
+                    self?.collectionViewHeightConstraint.constant = CGFloat((bondDetailsResponse.primaryDetails.count + bondDetailsResponse.secondaryDetails.count) * 50 - 25)
                     self?.collectionView.reloadData()
+                    
+                    self?.bondDetailTableViewDataSource.setFaqDetailsWith(list: bondDetailsResponse.faqs)
+                    self?.tableView.reloadData()
                 }
             }
         }
-        
-        self.collectionView.dataSource = self.bondDetailsdataSource
-        self.collectionView.delegate = self
     }
     
     static func controller(isin: String) -> UIViewController {
@@ -49,9 +77,7 @@ class BondDetailViewController: UIViewController {
 extension BondDetailViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let collectionViewWidth = collectionView.frame.width
-        let itemWidth = (collectionViewWidth - 20) / 2
-        return CGSize(width: itemWidth, height: 50)
+        return CGSize(width: (collectionView.frame.width - 20) / 2, height: 50)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -67,6 +93,13 @@ extension BondDetailViewController: UICollectionViewDelegate, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 12, left: 0, bottom: 50, right: 0)
+        return UIEdgeInsets(top: 10, left: 0, bottom: 30, right: 0)
+    }
+}
+
+extension BondDetailViewController: FAQCellDelegate, UITableViewDelegate {
+    
+    func didTapViewFor(index: IndexPath, cell: FAQCell) {
+        self.tableView.reloadRows(at: [index], with: .none)
     }
 }

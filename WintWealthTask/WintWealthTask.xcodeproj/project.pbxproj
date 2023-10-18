@@ -34,6 +34,8 @@
 		00CE04022AE001A1008268AF /* BondDetailDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE04012AE001A1008268AF /* BondDetailDataSource.swift */; };
 		00CE04082AE01458008268AF /* TitleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE04062AE01458008268AF /* TitleHeaderView.swift */; };
 		00CE04092AE01458008268AF /* TitleHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00CE04072AE01458008268AF /* TitleHeaderView.xib */; };
+		00CE040E2AE021D8008268AF /* FAQCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE040C2AE021D8008268AF /* FAQCell.swift */; };
+		00CE040F2AE021D8008268AF /* FAQCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00CE040D2AE021D8008268AF /* FAQCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +68,8 @@
 		00CE04012AE001A1008268AF /* BondDetailDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BondDetailDataSource.swift; sourceTree = "<group>"; };
 		00CE04062AE01458008268AF /* TitleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleHeaderView.swift; sourceTree = "<group>"; };
 		00CE04072AE01458008268AF /* TitleHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleHeaderView.xib; sourceTree = "<group>"; };
+		00CE040C2AE021D8008268AF /* FAQCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQCell.swift; sourceTree = "<group>"; };
+		00CE040D2AE021D8008268AF /* FAQCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FAQCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +218,8 @@
 				00CE03FD2AE0010D008268AF /* BondDetailCell.swift */,
 				00CE04072AE01458008268AF /* TitleHeaderView.xib */,
 				00CE04062AE01458008268AF /* TitleHeaderView.swift */,
+				00CE040D2AE021D8008268AF /* FAQCell.xib */,
+				00CE040C2AE021D8008268AF /* FAQCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -278,6 +284,7 @@
 			files = (
 				00CE03EC2ADFE206008268AF /* HeaderCell.xib in Resources */,
 				00CE04002AE0010D008268AF /* BondDetailCell.xib in Resources */,
+				00CE040F2AE021D8008268AF /* FAQCell.xib in Resources */,
 				00CE03C82ADFD147008268AF /* LaunchScreen.storyboard in Resources */,
 				00CE03C52ADFD147008268AF /* Assets.xcassets in Resources */,
 				00CE03F42ADFE6C4008268AF /* LoadMoreCell.xib in Resources */,
@@ -308,6 +315,7 @@
 				00CE03D52ADFD27F008268AF /* Endpoints.swift in Sources */,
 				00CE03D22ADFD1F9008268AF /* Bond.swift in Sources */,
 				00CE03DC2ADFD47B008268AF /* BondsListViewModel.swift in Sources */,
+				00CE040E2AE021D8008268AF /* FAQCell.swift in Sources */,
 				00CE03EB2ADFE206008268AF /* HeaderCell.swift in Sources */,
 				00CE03F22ADFE6B2008268AF /* LoadMoreCell.swift in Sources */,
 				00CE03DA2ADFD338008268AF /* BondsListViewController.swift in Sources */,
