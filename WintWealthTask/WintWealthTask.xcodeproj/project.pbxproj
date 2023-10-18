@@ -15,6 +15,11 @@
 		00CE03D22ADFD1F9008268AF /* Bond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE03D12ADFD1F9008268AF /* Bond.swift */; };
 		00CE03D52ADFD27F008268AF /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE03D42ADFD27F008268AF /* Endpoints.swift */; };
 		00CE03D72ADFD29D008268AF /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE03D62ADFD29D008268AF /* NetworkManager.swift */; };
+		00CE03DA2ADFD338008268AF /* BondsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE03D92ADFD338008268AF /* BondsListViewController.swift */; };
+		00CE03DC2ADFD47B008268AF /* BondsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE03DB2ADFD47B008268AF /* BondsListViewModel.swift */; };
+		00CE03E02ADFD506008268AF /* BondsListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE03DF2ADFD506008268AF /* BondsListDataSource.swift */; };
+		00CE03E22ADFD6BD008268AF /* BondItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE03E12ADFD6BD008268AF /* BondItemCell.swift */; };
+		00CE03E42ADFD728008268AF /* BondItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00CE03E32ADFD728008268AF /* BondItemCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +33,11 @@
 		00CE03D12ADFD1F9008268AF /* Bond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bond.swift; sourceTree = "<group>"; };
 		00CE03D42ADFD27F008268AF /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		00CE03D62ADFD29D008268AF /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		00CE03D92ADFD338008268AF /* BondsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BondsListViewController.swift; sourceTree = "<group>"; };
+		00CE03DB2ADFD47B008268AF /* BondsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BondsListViewModel.swift; sourceTree = "<group>"; };
+		00CE03DF2ADFD506008268AF /* BondsListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BondsListDataSource.swift; sourceTree = "<group>"; };
+		00CE03E12ADFD6BD008268AF /* BondItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BondItemCell.swift; sourceTree = "<group>"; };
+		00CE03E32ADFD728008268AF /* BondItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BondItemCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +72,8 @@
 			children = (
 				00CE03D02ADFD1E5008268AF /* Storyboards */,
 				00CE03D32ADFD1FE008268AF /* Models */,
+				00CE03DD2ADFD4CB008268AF /* Views */,
+				00CE03DE2ADFD4D6008268AF /* ViewModels */,
 				00CE03D82ADFD2AF008268AF /* Networking */,
 				00CE03CF2ADFD189008268AF /* Resources */,
 				00CE03C92ADFD147008268AF /* Info.plist */,
@@ -103,6 +115,33 @@
 				00CE03D62ADFD29D008268AF /* NetworkManager.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		00CE03DD2ADFD4CB008268AF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				00CE03D92ADFD338008268AF /* BondsListViewController.swift */,
+				00CE03DF2ADFD506008268AF /* BondsListDataSource.swift */,
+				00CE03E52ADFD798008268AF /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		00CE03DE2ADFD4D6008268AF /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				00CE03DB2ADFD47B008268AF /* BondsListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		00CE03E52ADFD798008268AF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				00CE03E32ADFD728008268AF /* BondItemCell.xib */,
+				00CE03E12ADFD6BD008268AF /* BondItemCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,6 +205,7 @@
 				00CE03C82ADFD147008268AF /* LaunchScreen.storyboard in Resources */,
 				00CE03C52ADFD147008268AF /* Assets.xcassets in Resources */,
 				00CE03C32ADFD146008268AF /* Main.storyboard in Resources */,
+				00CE03E42ADFD728008268AF /* BondItemCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,10 +217,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				00CE03BC2ADFD146008268AF /* AppDelegate.swift in Sources */,
+				00CE03E02ADFD506008268AF /* BondsListDataSource.swift in Sources */,
 				00CE03BE2ADFD146008268AF /* SceneDelegate.swift in Sources */,
+				00CE03E22ADFD6BD008268AF /* BondItemCell.swift in Sources */,
 				00CE03D72ADFD29D008268AF /* NetworkManager.swift in Sources */,
 				00CE03D52ADFD27F008268AF /* Endpoints.swift in Sources */,
 				00CE03D22ADFD1F9008268AF /* Bond.swift in Sources */,
+				00CE03DC2ADFD47B008268AF /* BondsListViewModel.swift in Sources */,
+				00CE03DA2ADFD338008268AF /* BondsListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
