@@ -27,8 +27,15 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2oM-r1-uXc" userLabel="Seperator">
+                        <rect key="frame" x="0.0" y="103" width="393" height="1"/>
+                        <color key="backgroundColor" red="0.87731586941453521" green="0.87667736477608327" blue="0.88783045039164488" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="XrN-dR-ctp"/>
+                        </constraints>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="748" verticalCompressionResistancePriority="748" text="CRISIL AAA INE441Q07011 20 Sep 2027" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lm2-Ju-Ulg">
-                        <rect key="frame" x="16" y="58" width="260.66666666666669" height="30"/>
+                        <rect key="frame" x="16" y="58" width="260.66666666666669" height="29"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -36,13 +43,16 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="Lm2-Ju-Ulg" firstAttribute="top" secondItem="lLc-01-9Vt" secondAttribute="bottom" constant="6" id="0cc-Pl-GtY"/>
+                    <constraint firstAttribute="bottom" secondItem="2oM-r1-uXc" secondAttribute="bottom" id="7tg-gw-REo"/>
                     <constraint firstItem="dIR-QF-yDk" firstAttribute="leading" secondItem="lLc-01-9Vt" secondAttribute="trailing" constant="16" id="EqH-61-y5Z"/>
+                    <constraint firstItem="2oM-r1-uXc" firstAttribute="leading" secondItem="Y3w-9D-R0A" secondAttribute="leading" id="FRv-Pg-wgT"/>
                     <constraint firstItem="lLc-01-9Vt" firstAttribute="leading" secondItem="Y3w-9D-R0A" secondAttribute="leading" constant="16" id="HzQ-V2-SQj"/>
                     <constraint firstItem="dIR-QF-yDk" firstAttribute="centerY" secondItem="Y3w-9D-R0A" secondAttribute="centerY" id="IGU-5J-Bdk"/>
                     <constraint firstItem="lLc-01-9Vt" firstAttribute="top" secondItem="Y3w-9D-R0A" secondAttribute="top" constant="16" id="Jiv-gq-6nW"/>
                     <constraint firstItem="dIR-QF-yDk" firstAttribute="leading" secondItem="Lm2-Ju-Ulg" secondAttribute="trailing" constant="20" id="VHp-Ha-zg7"/>
                     <constraint firstItem="Lm2-Ju-Ulg" firstAttribute="leading" secondItem="Y3w-9D-R0A" secondAttribute="leading" constant="16" id="c7X-VW-aDL"/>
-                    <constraint firstAttribute="bottom" secondItem="Lm2-Ju-Ulg" secondAttribute="bottom" constant="16" id="rEr-dO-m37"/>
+                    <constraint firstAttribute="trailing" secondItem="2oM-r1-uXc" secondAttribute="trailing" id="m7q-TO-oBF"/>
+                    <constraint firstItem="2oM-r1-uXc" firstAttribute="top" secondItem="Lm2-Ju-Ulg" secondAttribute="bottom" constant="16" id="qvu-7x-jZ1"/>
                     <constraint firstAttribute="trailing" secondItem="dIR-QF-yDk" secondAttribute="trailing" constant="16" id="uDB-iD-9nc"/>
                 </constraints>
             </tableViewCellContentView>

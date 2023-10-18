@@ -24,6 +24,7 @@ class BondsListViewController: UIViewController {
         self.tableView.delegate = self
         
         self.tableView.register(UINib(nibName: "BondItemCell", bundle: nil), forCellReuseIdentifier: "BondItemCell")
+        self.tableView.register(UINib(nibName: "HeaderCell", bundle: nil), forCellReuseIdentifier: "HeaderCell")
 
         fetchBondsFor(page: self.currentPage)
     }

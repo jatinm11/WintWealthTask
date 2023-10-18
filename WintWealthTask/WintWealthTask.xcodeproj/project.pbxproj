@@ -21,6 +21,8 @@
 		00CE03E22ADFD6BD008268AF /* BondItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE03E12ADFD6BD008268AF /* BondItemCell.swift */; };
 		00CE03E42ADFD728008268AF /* BondItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00CE03E32ADFD728008268AF /* BondItemCell.xib */; };
 		00CE03E72ADFDF47008268AF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE03E62ADFDF47008268AF /* Extensions.swift */; };
+		00CE03EB2ADFE206008268AF /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE03E92ADFE206008268AF /* HeaderCell.swift */; };
+		00CE03EC2ADFE206008268AF /* HeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00CE03EA2ADFE206008268AF /* HeaderCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		00CE03E12ADFD6BD008268AF /* BondItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BondItemCell.swift; sourceTree = "<group>"; };
 		00CE03E32ADFD728008268AF /* BondItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BondItemCell.xib; sourceTree = "<group>"; };
 		00CE03E62ADFDF47008268AF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		00CE03E92ADFE206008268AF /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		00CE03EA2ADFE206008268AF /* HeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +147,8 @@
 			children = (
 				00CE03E32ADFD728008268AF /* BondItemCell.xib */,
 				00CE03E12ADFD6BD008268AF /* BondItemCell.swift */,
+				00CE03EA2ADFE206008268AF /* HeaderCell.xib */,
+				00CE03E92ADFE206008268AF /* HeaderCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -213,6 +219,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00CE03EC2ADFE206008268AF /* HeaderCell.xib in Resources */,
 				00CE03C82ADFD147008268AF /* LaunchScreen.storyboard in Resources */,
 				00CE03C52ADFD147008268AF /* Assets.xcassets in Resources */,
 				00CE03C32ADFD146008268AF /* Main.storyboard in Resources */,
@@ -236,6 +243,7 @@
 				00CE03D52ADFD27F008268AF /* Endpoints.swift in Sources */,
 				00CE03D22ADFD1F9008268AF /* Bond.swift in Sources */,
 				00CE03DC2ADFD47B008268AF /* BondsListViewModel.swift in Sources */,
+				00CE03EB2ADFE206008268AF /* HeaderCell.swift in Sources */,
 				00CE03DA2ADFD338008268AF /* BondsListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
