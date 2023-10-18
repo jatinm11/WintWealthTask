@@ -47,6 +47,9 @@ class BondDetailViewController: UIViewController {
     }
     
     func setupViews() {
+        
+        self.navigationItem.largeTitleDisplayMode = .never
+        
         viewModel.fetchBondDetailsFor(isin: self.isin)
         
         viewModel.updateUI = { [weak self] bondDetailsResponse, error in
