@@ -20,6 +20,7 @@
 		00CE03E02ADFD506008268AF /* BondsListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE03DF2ADFD506008268AF /* BondsListDataSource.swift */; };
 		00CE03E22ADFD6BD008268AF /* BondItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE03E12ADFD6BD008268AF /* BondItemCell.swift */; };
 		00CE03E42ADFD728008268AF /* BondItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00CE03E32ADFD728008268AF /* BondItemCell.xib */; };
+		00CE03E72ADFDF47008268AF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE03E62ADFDF47008268AF /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		00CE03DF2ADFD506008268AF /* BondsListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BondsListDataSource.swift; sourceTree = "<group>"; };
 		00CE03E12ADFD6BD008268AF /* BondItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BondItemCell.swift; sourceTree = "<group>"; };
 		00CE03E32ADFD728008268AF /* BondItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BondItemCell.xib; sourceTree = "<group>"; };
+		00CE03E62ADFDF47008268AF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				00CE03DD2ADFD4CB008268AF /* Views */,
 				00CE03DE2ADFD4D6008268AF /* ViewModels */,
 				00CE03D82ADFD2AF008268AF /* Networking */,
+				00CE03E82ADFE139008268AF /* Helpers */,
 				00CE03CF2ADFD189008268AF /* Resources */,
 				00CE03C92ADFD147008268AF /* Info.plist */,
 			);
@@ -142,6 +145,14 @@
 				00CE03E12ADFD6BD008268AF /* BondItemCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		00CE03E82ADFE139008268AF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				00CE03E62ADFDF47008268AF /* Extensions.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +232,7 @@
 				00CE03BE2ADFD146008268AF /* SceneDelegate.swift in Sources */,
 				00CE03E22ADFD6BD008268AF /* BondItemCell.swift in Sources */,
 				00CE03D72ADFD29D008268AF /* NetworkManager.swift in Sources */,
+				00CE03E72ADFDF47008268AF /* Extensions.swift in Sources */,
 				00CE03D52ADFD27F008268AF /* Endpoints.swift in Sources */,
 				00CE03D22ADFD1F9008268AF /* Bond.swift in Sources */,
 				00CE03DC2ADFD47B008268AF /* BondsListViewModel.swift in Sources */,

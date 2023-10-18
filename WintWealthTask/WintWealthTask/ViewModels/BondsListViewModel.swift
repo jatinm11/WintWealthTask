@@ -18,6 +18,7 @@ class BondsListViewModel {
             
             switch result {
             case .success(let bondsList):
+                print(bondsList)
                 self?.updateUI?(bondsList, nil)
                 print(bondsList)
                 
