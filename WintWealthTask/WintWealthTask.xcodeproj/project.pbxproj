@@ -24,6 +24,8 @@
 		00CE03EB2ADFE206008268AF /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE03E92ADFE206008268AF /* HeaderCell.swift */; };
 		00CE03EC2ADFE206008268AF /* HeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00CE03EA2ADFE206008268AF /* HeaderCell.xib */; };
 		00CE03F02ADFE52A008268AF /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00CE03EF2ADFE52A008268AF /* Colors.xcassets */; };
+		00CE03F22ADFE6B2008268AF /* LoadMoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE03F12ADFE6B2008268AF /* LoadMoreCell.swift */; };
+		00CE03F42ADFE6C4008268AF /* LoadMoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00CE03F32ADFE6C4008268AF /* LoadMoreCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		00CE03E92ADFE206008268AF /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		00CE03EA2ADFE206008268AF /* HeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCell.xib; sourceTree = "<group>"; };
 		00CE03EF2ADFE52A008268AF /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		00CE03F12ADFE6B2008268AF /* LoadMoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadMoreCell.swift; sourceTree = "<group>"; };
+		00CE03F32ADFE6C4008268AF /* LoadMoreCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadMoreCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +156,8 @@
 				00CE03E12ADFD6BD008268AF /* BondItemCell.swift */,
 				00CE03EA2ADFE206008268AF /* HeaderCell.xib */,
 				00CE03E92ADFE206008268AF /* HeaderCell.swift */,
+				00CE03F32ADFE6C4008268AF /* LoadMoreCell.xib */,
+				00CE03F12ADFE6B2008268AF /* LoadMoreCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -225,6 +231,7 @@
 				00CE03EC2ADFE206008268AF /* HeaderCell.xib in Resources */,
 				00CE03C82ADFD147008268AF /* LaunchScreen.storyboard in Resources */,
 				00CE03C52ADFD147008268AF /* Assets.xcassets in Resources */,
+				00CE03F42ADFE6C4008268AF /* LoadMoreCell.xib in Resources */,
 				00CE03F02ADFE52A008268AF /* Colors.xcassets in Resources */,
 				00CE03C32ADFD146008268AF /* Main.storyboard in Resources */,
 				00CE03E42ADFD728008268AF /* BondItemCell.xib in Resources */,
@@ -248,6 +255,7 @@
 				00CE03D22ADFD1F9008268AF /* Bond.swift in Sources */,
 				00CE03DC2ADFD47B008268AF /* BondsListViewModel.swift in Sources */,
 				00CE03EB2ADFE206008268AF /* HeaderCell.swift in Sources */,
+				00CE03F22ADFE6B2008268AF /* LoadMoreCell.swift in Sources */,
 				00CE03DA2ADFD338008268AF /* BondsListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

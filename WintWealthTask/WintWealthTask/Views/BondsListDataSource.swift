@@ -9,6 +9,8 @@ import UIKit
 
 class BondsListDataSource: NSObject, UITableViewDataSource {
     
+    var footerCellDelegate: FooterCellDelegate!
+    
     var bondsList: [Bond] = []
     
     func setBondsList(list: [Bond]) {
@@ -16,11 +18,18 @@ class BondsListDataSource: NSObject, UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? 1 : bondsList.count
+        switch section {
+        case 0,2:
+            return self.bondsList.count > 0 ? 1 : 0
+        case 1:
+            return self.bondsList.count
+        default:
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -34,7 +43,12 @@ class BondsListDataSource: NSObject, UITableViewDataSource {
             let bondListCell = tableView.dequeueReusableCell(withIdentifier: "BondItemCell", for: indexPath) as! BondItemCell
             bondListCell.bondItem = self.bondsList[indexPath.row]
             return bondListCell
-
+            
+        case 2:
+            let loadMoreCell = tableView.dequeueReusableCell(withIdentifier: "LoadMoreCell") as! LoadMoreCell
+            loadMoreCell.footerCellDelegate = footerCellDelegate
+            return loadMoreCell
+            
         default:
             return UITableViewCell()
         }

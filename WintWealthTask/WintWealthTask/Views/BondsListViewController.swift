@@ -10,7 +10,6 @@ import UIKit
 class BondsListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchBar: UISearchBar!
     
     var viewModel: BondsListViewModel = BondsListViewModel()
     var dataSource = BondsListDataSource()
@@ -19,14 +18,19 @@ class BondsListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.tableView.dataSource = self.dataSource
-        self.tableView.delegate = self
-        
+
+        setupViews()
+    }
+    
+    func setupViews() {
         self.tableView.register(UINib(nibName: "BondItemCell", bundle: nil), forCellReuseIdentifier: "BondItemCell")
         self.tableView.register(UINib(nibName: "HeaderCell", bundle: nil), forCellReuseIdentifier: "HeaderCell")
-
-        fetchBondsFor(page: self.currentPage)
+        self.tableView.register(UINib(nibName: "LoadMoreCell", bundle: nil), forCellReuseIdentifier: "LoadMoreCell")
+        
+        self.tableView.dataSource = self.dataSource
+        self.dataSource.footerCellDelegate = self
+        
+        self.fetchBondsFor(page: self.currentPage)
     }
     
     func fetchBondsFor(page: Int) {
@@ -45,6 +49,8 @@ class BondsListViewController: UIViewController {
     }
 }
 
-extension BondsListViewController: UITableViewDelegate {
-    
+extension BondsListViewController: FooterCellDelegate {
+    func didTapLoadMore() {
+        self.fetchBondsFor(page: self.currentPage)
+    }
 }
