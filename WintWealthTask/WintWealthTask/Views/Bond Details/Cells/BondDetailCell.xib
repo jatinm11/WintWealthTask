@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BondDetailCell" id="gTV-IL-0wX" customClass="BondDetailCell" customModule="WintWealthTask" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="180" height="125"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="180" height="125"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5LG-Rf-K19">
+                        <rect key="frame" x="0.0" y="0.0" width="180" height="125"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="kEv-7e-Kvj">
+                                <rect key="frame" x="15.999999999999996" y="39" width="42.666666666666657" height="47.333333333333343"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPs-Pa-C7p">
+                                        <rect key="frame" x="0.0" y="0.0" width="42.666666666666664" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9dz-sJ-jqa">
+                                        <rect key="frame" x="0.0" y="27" width="42.666666666666664" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" name="BackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kEv-7e-Kvj" firstAttribute="leading" secondItem="5LG-Rf-K19" secondAttribute="leading" constant="16" id="6xr-ud-DL9"/>
+                            <constraint firstItem="kEv-7e-Kvj" firstAttribute="centerY" secondItem="5LG-Rf-K19" secondAttribute="centerY" id="P8s-mM-8z3"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="5LG-Rf-K19" secondAttribute="bottom" id="3fu-6d-mCW"/>
+                <constraint firstItem="5LG-Rf-K19" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Cod-eT-vkK"/>
+                <constraint firstItem="5LG-Rf-K19" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="bca-sO-al7"/>
+                <constraint firstAttribute="trailing" secondItem="5LG-Rf-K19" secondAttribute="trailing" id="wHg-Ld-46h"/>
+            </constraints>
+            <size key="customSize" width="180" height="125"/>
+            <connections>
+                <outlet property="keyLabel" destination="IPs-Pa-C7p" id="eg9-Qq-Cqx"/>
+                <outlet property="valueLabel" destination="9dz-sJ-jqa" id="CZ2-6O-z7z"/>
+            </connections>
+            <point key="canvasLocation" x="238.1679389312977" y="46.126760563380287"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="BackgroundColor">
+            <color red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BondsListViewController: UIViewController {
+class BondsListViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -28,6 +28,7 @@ class BondsListViewController: UIViewController {
         self.tableView.register(UINib(nibName: "HeaderCell", bundle: nil), forCellReuseIdentifier: "HeaderCell")
         self.tableView.register(UINib(nibName: "LoadMoreCell", bundle: nil), forCellReuseIdentifier: "LoadMoreCell")
         
+        self.tableView.delegate = self
         self.tableView.dataSource = self.dataSource
         self.dataSource.footerCellDelegate = self
         
@@ -49,6 +50,11 @@ class BondsListViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedIsin = self.dataSource.bondsList[indexPath.row].isin
+        self.navigationController?.pushViewController(BondDetailViewController.controller(isin: selectedIsin), animated: true)
     }
 }
 

@@ -26,6 +26,12 @@
 		00CE03F02ADFE52A008268AF /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00CE03EF2ADFE52A008268AF /* Colors.xcassets */; };
 		00CE03F22ADFE6B2008268AF /* LoadMoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE03F12ADFE6B2008268AF /* LoadMoreCell.swift */; };
 		00CE03F42ADFE6C4008268AF /* LoadMoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00CE03F32ADFE6C4008268AF /* LoadMoreCell.xib */; };
+		00CE03F62ADFEDAF008268AF /* BondDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE03F52ADFEDAF008268AF /* BondDetailViewController.swift */; };
+		00CE03F82ADFFC04008268AF /* BondDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE03F72ADFFC03008268AF /* BondDetail.swift */; };
+		00CE03FA2ADFFCBA008268AF /* BondDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE03F92ADFFCBA008268AF /* BondDetailsViewModel.swift */; };
+		00CE03FF2AE0010D008268AF /* BondDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE03FD2AE0010D008268AF /* BondDetailCell.swift */; };
+		00CE04002AE0010D008268AF /* BondDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00CE03FE2AE0010D008268AF /* BondDetailCell.xib */; };
+		00CE04022AE001A1008268AF /* BondDetailDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE04012AE001A1008268AF /* BondDetailDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +56,12 @@
 		00CE03EF2ADFE52A008268AF /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		00CE03F12ADFE6B2008268AF /* LoadMoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadMoreCell.swift; sourceTree = "<group>"; };
 		00CE03F32ADFE6C4008268AF /* LoadMoreCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadMoreCell.xib; sourceTree = "<group>"; };
+		00CE03F52ADFEDAF008268AF /* BondDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BondDetailViewController.swift; sourceTree = "<group>"; };
+		00CE03F72ADFFC03008268AF /* BondDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BondDetail.swift; sourceTree = "<group>"; };
+		00CE03F92ADFFCBA008268AF /* BondDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BondDetailsViewModel.swift; sourceTree = "<group>"; };
+		00CE03FD2AE0010D008268AF /* BondDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BondDetailCell.swift; sourceTree = "<group>"; };
+		00CE03FE2AE0010D008268AF /* BondDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BondDetailCell.xib; sourceTree = "<group>"; };
+		00CE04012AE001A1008268AF /* BondDetailDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BondDetailDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				00CE03D12ADFD1F9008268AF /* Bond.swift */,
+				00CE03F72ADFFC03008268AF /* BondDetail.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -134,9 +147,8 @@
 		00CE03DD2ADFD4CB008268AF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				00CE03D92ADFD338008268AF /* BondsListViewController.swift */,
-				00CE03DF2ADFD506008268AF /* BondsListDataSource.swift */,
-				00CE03E52ADFD798008268AF /* Cells */,
+				00CE03FB2AE000D8008268AF /* Bonds List */,
+				00CE03FC2AE000EC008268AF /* Bond Details */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -145,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				00CE03DB2ADFD47B008268AF /* BondsListViewModel.swift */,
+				00CE03F92ADFFCBA008268AF /* BondDetailsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -168,6 +181,35 @@
 				00CE03E62ADFDF47008268AF /* Extensions.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		00CE03FB2AE000D8008268AF /* Bonds List */ = {
+			isa = PBXGroup;
+			children = (
+				00CE03D92ADFD338008268AF /* BondsListViewController.swift */,
+				00CE03DF2ADFD506008268AF /* BondsListDataSource.swift */,
+				00CE03E52ADFD798008268AF /* Cells */,
+			);
+			path = "Bonds List";
+			sourceTree = "<group>";
+		};
+		00CE03FC2AE000EC008268AF /* Bond Details */ = {
+			isa = PBXGroup;
+			children = (
+				00CE03F52ADFEDAF008268AF /* BondDetailViewController.swift */,
+				00CE04012AE001A1008268AF /* BondDetailDataSource.swift */,
+				00CE04052AE0122F008268AF /* Cells */,
+			);
+			path = "Bond Details";
+			sourceTree = "<group>";
+		};
+		00CE04052AE0122F008268AF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				00CE03FE2AE0010D008268AF /* BondDetailCell.xib */,
+				00CE03FD2AE0010D008268AF /* BondDetailCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00CE03EC2ADFE206008268AF /* HeaderCell.xib in Resources */,
+				00CE04002AE0010D008268AF /* BondDetailCell.xib in Resources */,
 				00CE03C82ADFD147008268AF /* LaunchScreen.storyboard in Resources */,
 				00CE03C52ADFD147008268AF /* Assets.xcassets in Resources */,
 				00CE03F42ADFE6C4008268AF /* LoadMoreCell.xib in Resources */,
@@ -248,8 +291,12 @@
 				00CE03BC2ADFD146008268AF /* AppDelegate.swift in Sources */,
 				00CE03E02ADFD506008268AF /* BondsListDataSource.swift in Sources */,
 				00CE03BE2ADFD146008268AF /* SceneDelegate.swift in Sources */,
+				00CE03FA2ADFFCBA008268AF /* BondDetailsViewModel.swift in Sources */,
 				00CE03E22ADFD6BD008268AF /* BondItemCell.swift in Sources */,
+				00CE03FF2AE0010D008268AF /* BondDetailCell.swift in Sources */,
 				00CE03D72ADFD29D008268AF /* NetworkManager.swift in Sources */,
+				00CE03F82ADFFC04008268AF /* BondDetail.swift in Sources */,
+				00CE03F62ADFEDAF008268AF /* BondDetailViewController.swift in Sources */,
 				00CE03E72ADFDF47008268AF /* Extensions.swift in Sources */,
 				00CE03D52ADFD27F008268AF /* Endpoints.swift in Sources */,
 				00CE03D22ADFD1F9008268AF /* Bond.swift in Sources */,
@@ -257,6 +304,7 @@
 				00CE03EB2ADFE206008268AF /* HeaderCell.swift in Sources */,
 				00CE03F22ADFE6B2008268AF /* LoadMoreCell.swift in Sources */,
 				00CE03DA2ADFD338008268AF /* BondsListViewController.swift in Sources */,
+				00CE04022AE001A1008268AF /* BondDetailDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

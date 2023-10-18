@@ -18,6 +18,7 @@ protocol Endpoint {
 enum AllBondsEndpont: Endpoint {
     
     case getBondsFor(page: String, limit: String)
+    case getBondDetailsWith(isin: String)
     
     var scheme: String {
         switch self {
@@ -35,8 +36,10 @@ enum AllBondsEndpont: Endpoint {
     
     var path: String {
         switch self {
-        default:
+        case .getBondsFor:
             return "/bondsDirectory/bonds"
+        case .getBondDetailsWith:
+            return "/bondsDirectory/bondDetails/v2"
         }
     }
     
@@ -45,6 +48,11 @@ enum AllBondsEndpont: Endpoint {
         case .getBondsFor(let page, let limit):
             return [URLQueryItem(name: "page", value: page),
                     URLQueryItem(name: "limit", value: limit)
+            ]
+            
+        case .getBondDetailsWith(let isin):
+            return [
+                URLQueryItem(name: "isin", value: isin),
             ]
         }
     }

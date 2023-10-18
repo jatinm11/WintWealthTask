@@ -45,6 +45,43 @@
             </objects>
             <point key="canvasLocation" x="1045" y="-250"/>
         </scene>
+        <!--Bond Detail View Controller-->
+        <scene sceneID="dPE-xX-gGa">
+            <objects>
+                <viewController storyboardIdentifier="BondDetailViewController" id="rXN-mX-K3t" customClass="BondDetailViewController" customModule="WintWealthTask" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wuo-fm-Fjw">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RON-21-Sk7">
+                                <rect key="frame" x="16" y="99" width="361" height="719"/>
+                                <color key="backgroundColor" name="BackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Eh5-Xl-fV4">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="zdb-0G-A6Z"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zdb-0G-A6Z" firstAttribute="bottom" secondItem="RON-21-Sk7" secondAttribute="bottom" id="20S-Jk-rzA"/>
+                            <constraint firstItem="RON-21-Sk7" firstAttribute="top" secondItem="zdb-0G-A6Z" secondAttribute="top" constant="40" id="IR2-yw-eif"/>
+                            <constraint firstItem="zdb-0G-A6Z" firstAttribute="trailing" secondItem="RON-21-Sk7" secondAttribute="trailing" constant="16" id="UBi-S1-p6U"/>
+                            <constraint firstItem="RON-21-Sk7" firstAttribute="leading" secondItem="zdb-0G-A6Z" secondAttribute="leading" constant="16" id="lp1-Mj-TiH"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="RON-21-Sk7" id="0zk-8S-Y77"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xaW-P8-nwb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1860.3053435114502" y="-250"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="R0V-bY-F9c">
             <objects>
