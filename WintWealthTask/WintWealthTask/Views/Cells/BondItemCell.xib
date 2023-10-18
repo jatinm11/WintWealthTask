@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -29,7 +30,7 @@
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2oM-r1-uXc" userLabel="Seperator">
                         <rect key="frame" x="0.0" y="103" width="393" height="1"/>
-                        <color key="backgroundColor" red="0.87731586941453521" green="0.87667736477608327" blue="0.88783045039164488" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" name="SepratorColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="XrN-dR-ctp"/>
                         </constraints>
@@ -41,6 +42,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" name="BackgroundColor"/>
                 <constraints>
                     <constraint firstItem="Lm2-Ju-Ulg" firstAttribute="top" secondItem="lLc-01-9Vt" secondAttribute="bottom" constant="6" id="0cc-Pl-GtY"/>
                     <constraint firstAttribute="bottom" secondItem="2oM-r1-uXc" secondAttribute="bottom" id="7tg-gw-REo"/>
@@ -64,4 +66,12 @@
             <point key="canvasLocation" x="-86.25954198473282" y="2.8169014084507045"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <namedColor name="BackgroundColor">
+            <color red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SepratorColor">
+            <color red="0.93333333333333335" green="0.91764705882352937" blue="0.89411764705882357" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
