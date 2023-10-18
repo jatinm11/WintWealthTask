@@ -68,6 +68,7 @@
                         </subviews>
                     </stackView>
                 </subviews>
+                <color key="backgroundColor" name="BackgroundColor"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="nKT-yE-9FU" secondAttribute="bottom" id="6kO-Wx-Z7T"/>
                     <constraint firstItem="nKT-yE-9FU" firstAttribute="top" secondItem="Gld-GA-lLn" secondAttribute="top" id="ROB-aH-iax"/>

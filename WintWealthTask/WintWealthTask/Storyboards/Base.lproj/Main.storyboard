@@ -59,7 +59,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lFy-vW-Wgd" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                         <subviews>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RON-21-Sk7">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RON-21-Sk7">
                                                 <rect key="frame" x="16" y="8" width="361" height="321"/>
                                                 <color key="backgroundColor" name="BackgroundColor"/>
                                                 <constraints>
@@ -73,15 +73,18 @@
                                                 </collectionViewFlowLayout>
                                                 <cells/>
                                             </collectionView>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="C9M-Yi-3Oe">
-                                                <rect key="frame" x="16" y="329" width="361" height="507"/>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="C9M-Yi-3Oe">
+                                                <rect key="frame" x="16" y="329" width="361" height="523"/>
                                                 <color key="backgroundColor" name="BackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="523" id="2pW-oe-TGG"/>
+                                                </constraints>
                                                 <view key="tableHeaderView" contentMode="scaleToFill" id="xRB-Oj-VPh">
                                                     <rect key="frame" x="0.0" y="0.0" width="361" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FAQ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJ6-QJ-c2k">
-                                                            <rect key="frame" x="16" y="12.666666666666664" width="35" height="19"/>
+                                                            <rect key="frame" x="8" y="12.666666666666664" width="345" height="19"/>
                                                             <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -89,7 +92,8 @@
                                                     </subviews>
                                                     <color key="backgroundColor" name="BackgroundColor"/>
                                                     <constraints>
-                                                        <constraint firstItem="FJ6-QJ-c2k" firstAttribute="leading" secondItem="xRB-Oj-VPh" secondAttribute="leading" constant="16" id="6T3-VI-y1x"/>
+                                                        <constraint firstAttribute="trailing" secondItem="FJ6-QJ-c2k" secondAttribute="trailing" constant="8" id="57Q-UG-EZi"/>
+                                                        <constraint firstItem="FJ6-QJ-c2k" firstAttribute="leading" secondItem="xRB-Oj-VPh" secondAttribute="leading" constant="8" id="6T3-VI-y1x"/>
                                                         <constraint firstItem="FJ6-QJ-c2k" firstAttribute="centerY" secondItem="xRB-Oj-VPh" secondAttribute="centerY" id="KT5-3z-Zuf"/>
                                                     </constraints>
                                                 </view>
@@ -101,7 +105,7 @@
                                             <constraint firstItem="RON-21-Sk7" firstAttribute="top" secondItem="lFy-vW-Wgd" secondAttribute="top" constant="8" id="AEU-7A-C1Q"/>
                                             <constraint firstItem="RON-21-Sk7" firstAttribute="leading" secondItem="lFy-vW-Wgd" secondAttribute="leading" constant="16" id="OUK-xs-QLN"/>
                                             <constraint firstAttribute="trailing" secondItem="C9M-Yi-3Oe" secondAttribute="trailing" constant="16" id="PBr-CE-4xO"/>
-                                            <constraint firstAttribute="bottom" secondItem="C9M-Yi-3Oe" secondAttribute="bottom" constant="16" id="RQi-7v-ERN"/>
+                                            <constraint firstAttribute="bottom" secondItem="C9M-Yi-3Oe" secondAttribute="bottom" id="XCw-Ci-eup"/>
                                             <constraint firstItem="C9M-Yi-3Oe" firstAttribute="leading" secondItem="lFy-vW-Wgd" secondAttribute="leading" constant="16" id="iHc-Tt-wb6"/>
                                             <constraint firstAttribute="trailing" secondItem="RON-21-Sk7" secondAttribute="trailing" constant="16" id="mkL-m8-pQ8"/>
                                         </constraints>
@@ -122,14 +126,15 @@
                             <constraint firstItem="lFy-vW-Wgd" firstAttribute="width" secondItem="Wuo-fm-Fjw" secondAttribute="width" id="BJ5-qy-ZSX"/>
                             <constraint firstItem="3s9-Y8-by8" firstAttribute="top" secondItem="zdb-0G-A6Z" secondAttribute="top" id="Fft-Y6-z38"/>
                             <constraint firstAttribute="bottom" secondItem="3s9-Y8-by8" secondAttribute="bottom" id="d5b-oK-Rlu"/>
-                            <constraint firstItem="lFy-vW-Wgd" firstAttribute="height" secondItem="Wuo-fm-Fjw" secondAttribute="height" id="jw6-98-vDl"/>
                             <constraint firstItem="3s9-Y8-by8" firstAttribute="trailing" secondItem="zdb-0G-A6Z" secondAttribute="trailing" id="vFO-5h-fWF"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="RON-21-Sk7" id="0zk-8S-Y77"/>
                         <outlet property="collectionViewHeightConstraint" destination="UCK-Qv-q3n" id="y0o-Ww-rjz"/>
+                        <outlet property="scrollView" destination="3s9-Y8-by8" id="Zwx-Tm-RfK"/>
                         <outlet property="tableView" destination="C9M-Yi-3Oe" id="7qa-nu-vl0"/>
+                        <outlet property="tableViewHeightConstraint" destination="2pW-oe-TGG" id="Mph-h6-OJS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xaW-P8-nwb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -144,6 +149,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vrQ-Oi-7Yp">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.20784313730000001" green="0.41176470590000003" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

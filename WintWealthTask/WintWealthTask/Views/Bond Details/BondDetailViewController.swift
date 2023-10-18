@@ -11,8 +11,9 @@ class BondDetailViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewHeightConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     var viewModel = BondDetailsViewModel()
     var bondDetailCollectionViewDataSource = BondDetailCollectionViewDataSource()
@@ -43,14 +44,11 @@ class BondDetailViewController: UIViewController {
         self.tableView.dataSource = self.bondDetailTableViewDataSource
         
         self.bondDetailTableViewDataSource.delegate = self
-        
-        self.tableView.estimatedRowHeight = 100
-        self.tableView.rowHeight = UITableView.automaticDimension
-        self.tableView.delegate = self
     }
     
     func setupViews() {
         viewModel.fetchBondDetailsFor(isin: self.isin)
+        
         viewModel.updateUI = { [weak self] bondDetailsResponse, error in
             if let bondDetailsResponse = bondDetailsResponse {
                 DispatchQueue.main.async {
@@ -60,6 +58,7 @@ class BondDetailViewController: UIViewController {
                     self?.collectionView.reloadData()
                     
                     self?.bondDetailTableViewDataSource.setFaqDetailsWith(list: bondDetailsResponse.faqs)
+                    self?.tableViewHeightConstraint.constant = CGFloat(bondDetailsResponse.faqs.count * 70)
                     self?.tableView.reloadData()
                 }
             }
@@ -97,8 +96,7 @@ extension BondDetailViewController: UICollectionViewDelegate, UICollectionViewDe
     }
 }
 
-extension BondDetailViewController: FAQCellDelegate, UITableViewDelegate {
-    
+extension BondDetailViewController: FAQCellDelegate {
     func didTapViewFor(index: IndexPath, cell: FAQCell) {
         self.tableView.reloadRows(at: [index], with: .none)
     }

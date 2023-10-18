@@ -18,7 +18,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mw-xp-uAw">
-                            <rect key="frame" x="16" y="18.666666666666668" width="42" height="19.000000000000004"/>
+                            <rect key="frame" x="8" y="18.666666666666668" width="42" height="19.000000000000004"/>
                             <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -26,7 +26,7 @@
                     </subviews>
                     <color key="backgroundColor" name="BackgroundColor"/>
                     <constraints>
-                        <constraint firstItem="7mw-xp-uAw" firstAttribute="leading" secondItem="vAO-Ll-Vn2" secondAttribute="leading" constant="16" id="Lt6-gs-rem"/>
+                        <constraint firstItem="7mw-xp-uAw" firstAttribute="leading" secondItem="vAO-Ll-Vn2" secondAttribute="leading" constant="8" id="Lt6-gs-rem"/>
                         <constraint firstItem="7mw-xp-uAw" firstAttribute="centerY" secondItem="vAO-Ll-Vn2" secondAttribute="centerY" id="uql-vQ-bgC"/>
                     </constraints>
                 </view>
