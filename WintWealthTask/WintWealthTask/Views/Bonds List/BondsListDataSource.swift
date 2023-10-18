@@ -17,6 +17,10 @@ class BondsListDataSource: NSObject, UITableViewDataSource {
         self.bondsList.append(contentsOf: list)
     }
     
+    func clearList() {
+        self.bondsList = []
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }

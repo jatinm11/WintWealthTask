@@ -9,32 +9,34 @@ import Foundation
 
 struct Bond: Codable {
     
+    var totalBonds: Int?
+    
     var isin: String
     
     var issuerName: String
     
-    var issueMode: String
+    var issueMode: String?
     
-    var faceValue: Int
+    var faceValue: Int?
     
-    var issueSize: String
+    var issueSize: String?
     
     var timeLeftForMaturity: String?
     
-    var maturityDate: String
+    var maturityDate: String?
     
-    var couponRate: String
+    var couponRate: String?
     
     var couponType: String?
     
     var interestRepayment: String?
     
-    var creditRating: String
+    var creditRating: String?
     
     var businessSector: String?
     
-    var instrumentStatus: String
+    var instrumentStatus: String?
     
-    var issuerNameSlug: String
+    var issuerNameSlug: String?
     
 }

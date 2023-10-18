@@ -22,8 +22,8 @@ class BondItemCell: UITableViewCell {
     func updateViews() {
         if let bondItem = bondItem {
             self.issuerNameLabel.text = bondItem.issuerName.capitalized
-            self.detailLabel.text = "\(bondItem.creditRating) • \(bondItem.isin) • \(bondItem.maturityDate.wintFormat())"
-            self.couponValueLabel.text = "\(bondItem.couponRate)%"
+            self.detailLabel.text = "\(bondItem.creditRating ?? "N/A") • \(bondItem.isin) • \(bondItem.maturityDate?.wintFormat() ?? "N/A")"
+            self.couponValueLabel.text = "\(bondItem.couponRate ?? "N/A")%"
         }
     }
 }
