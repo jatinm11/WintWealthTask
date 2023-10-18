@@ -54,7 +54,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RON-21-Sk7">
-                                <rect key="frame" x="16" y="99" width="361" height="719"/>
+                                <rect key="frame" x="16" y="59" width="361" height="759"/>
                                 <color key="backgroundColor" name="BackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Eh5-Xl-fV4">
                                     <size key="itemSize" width="128" height="128"/>
@@ -69,7 +69,7 @@
                         <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="zdb-0G-A6Z" firstAttribute="bottom" secondItem="RON-21-Sk7" secondAttribute="bottom" id="20S-Jk-rzA"/>
-                            <constraint firstItem="RON-21-Sk7" firstAttribute="top" secondItem="zdb-0G-A6Z" secondAttribute="top" constant="40" id="IR2-yw-eif"/>
+                            <constraint firstItem="RON-21-Sk7" firstAttribute="top" secondItem="zdb-0G-A6Z" secondAttribute="top" id="IR2-yw-eif"/>
                             <constraint firstItem="zdb-0G-A6Z" firstAttribute="trailing" secondItem="RON-21-Sk7" secondAttribute="trailing" constant="16" id="UBi-S1-p6U"/>
                             <constraint firstItem="RON-21-Sk7" firstAttribute="leading" secondItem="zdb-0G-A6Z" secondAttribute="leading" constant="16" id="lp1-Mj-TiH"/>
                         </constraints>
@@ -103,7 +103,7 @@
     </scenes>
     <resources>
         <namedColor name="BackgroundColor">
-            <color red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.97605688030352478" green="0.97333805890992164" blue="0.97877570169712791" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

@@ -20,6 +20,7 @@ class BondDetailViewController: UIViewController {
         super.viewDidLoad()
         
         self.collectionView.register(UINib(nibName: "BondDetailCell", bundle: nil), forCellWithReuseIdentifier: "BondDetailCell")
+        self.collectionView.register(UINib(nibName: "TitleHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier:"TitleHeaderView")
      
         viewModel.fetchBondDetailsFor(isin: self.isin)
         viewModel.updateUI = { [weak self] bondDetailsResponse, error in
@@ -37,17 +38,6 @@ class BondDetailViewController: UIViewController {
         self.collectionView.delegate = self
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        
-        self.collectionView.collectionViewLayout.invalidateLayout()
-    }
-    
-    func fetchBondsDetailsWith(isin: String) {
-        viewModel.fetchBondDetailsFor(isin: isin)
-        
-    }
-    
     static func controller(isin: String) -> UIViewController {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BondDetailViewController") as! BondDetailViewController
         vc.isin = isin
@@ -55,7 +45,8 @@ class BondDetailViewController: UIViewController {
     }
 }
 
-extension BondDetailViewController: UICollectionViewDelegateFlowLayout {
+// MARK: Flow Layout
+extension BondDetailViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionViewWidth = collectionView.frame.width
@@ -69,5 +60,13 @@ extension BondDetailViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 20
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return section == 0 ? CGSize(width: 0, height: 0) : CGSize(width: collectionView.bounds.width, height: 45)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 12, left: 0, bottom: 50, right: 0)
     }
 }

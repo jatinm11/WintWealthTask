@@ -52,4 +52,15 @@ class BondDetailDataSource: NSObject, UICollectionViewDataSource {
             return UICollectionViewCell()
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            let titleHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "TitleHeaderView", for: indexPath) as! TitleHeaderView
+            titleHeaderView.titleLabel.text = "Bond Key Highlights"
+            return titleHeaderView
+        default:
+            return UICollectionReusableView()
+        }
+    }
 }

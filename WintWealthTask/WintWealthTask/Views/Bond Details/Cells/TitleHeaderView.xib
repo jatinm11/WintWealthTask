@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TitleHeaderView" id="lOj-ZZ-buj" customClass="TitleHeaderView" customModule="WintWealthTask" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vAO-Ll-Vn2">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mw-xp-uAw">
+                            <rect key="frame" x="16" y="18.666666666666668" width="42" height="19.000000000000004"/>
+                            <fontDescription key="fontDescription" name="Palatino-Roman" family="Palatino" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" name="BackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="7mw-xp-uAw" firstAttribute="leading" secondItem="vAO-Ll-Vn2" secondAttribute="leading" constant="16" id="Lt6-gs-rem"/>
+                        <constraint firstItem="7mw-xp-uAw" firstAttribute="centerY" secondItem="vAO-Ll-Vn2" secondAttribute="centerY" id="uql-vQ-bgC"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="7m1-ss-QEs"/>
+            <constraints>
+                <constraint firstItem="7m1-ss-QEs" firstAttribute="trailing" secondItem="vAO-Ll-Vn2" secondAttribute="trailing" id="6eB-Ne-hLw"/>
+                <constraint firstItem="vAO-Ll-Vn2" firstAttribute="top" secondItem="lOj-ZZ-buj" secondAttribute="top" id="Hi6-sb-jD8"/>
+                <constraint firstItem="vAO-Ll-Vn2" firstAttribute="leading" secondItem="7m1-ss-QEs" secondAttribute="leading" id="v5E-uC-iwL"/>
+                <constraint firstAttribute="bottom" secondItem="vAO-Ll-Vn2" secondAttribute="bottom" id="waa-d3-iyN"/>
+            </constraints>
+            <connections>
+                <outlet property="titleLabel" destination="7mw-xp-uAw" id="myf-FA-pdB"/>
+            </connections>
+            <point key="canvasLocation" x="293.89312977099235" y="-128.16901408450704"/>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <namedColor name="BackgroundColor">
+            <color red="0.97605688030352478" green="0.97333805890992164" blue="0.97877570169712791" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>
