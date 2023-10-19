@@ -66,7 +66,7 @@ class BondsListViewController: UIViewController, UITableViewDelegate {
                 }
             }
             
-            self.dataSource.loadMoreIsEnabled = viewModel.showLoadMoreButton! == true
+            self.dataSource.loadMoreIsEnabled = viewModel.showLoadMoreButton!
         }
     }
         
