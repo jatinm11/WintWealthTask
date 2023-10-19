@@ -72,7 +72,7 @@ class BondDetailViewController: UIViewController {
                     self?.bondDetailTableViewDataSource.setFaqObjectsWith(list: customFAQs)
                     
                     self?.faqPlaceholderLabel.isHidden = false
-                    self?.tableViewHeightConstraint.constant = CGFloat(bondDetailsResponse.faqs.count * 70)
+                    self?.tableViewHeightConstraint.constant = CGFloat(bondDetailsResponse.faqs.count * 85)
                     self?.tableView.reloadData()
                 }
             }

@@ -69,7 +69,7 @@ class BondsListViewController: UIViewController, UITableViewDelegate {
     }
     
     func showPlaceholderView() {
-        searchPlaceholderView = UIView(frame: CGRect(x: 0, y: 110, width: self.view.frame.width, height: self.tableView.frame.height))
+        searchPlaceholderView = UIView(frame: CGRect(x: 0, y: 110, width: self.view.frame.width, height: self.view.frame.height))
         searchPlaceholderView!.backgroundColor = UIColor.black.withAlphaComponent(0.8)
         self.tableView.addSubview(searchPlaceholderView!)
     }
