@@ -104,7 +104,7 @@ extension BondsListViewController: UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if let query = searchBar.searchTextField.text, query != "" {
+        if let query = searchBar.searchTextField.text, query != "", query.count > 3 {
             self.totalResultsLabel.text = "Searching for \(query)... ⌛️"
             self.dataSource.clearList()
             self.viewModel.searchBonds(with: query)
