@@ -17,8 +17,8 @@ protocol Endpoint {
 
 enum AllBondsEndpont: Endpoint {
     
-    case getBondsFor(page: String, limit: String)
-    case getBondsWith(query: String)
+    case getBondsFor(page: String)
+    case getBondsWith(query: String, page: String)
     case getBondDetailsWith(isin: String)
     
     var scheme: String {
@@ -46,14 +46,14 @@ enum AllBondsEndpont: Endpoint {
     
     var parameters: [URLQueryItem] {
         switch self {
-        case .getBondsFor(let page, let limit):
+        case .getBondsFor(let page):
             return [URLQueryItem(name: "page", value: page),
-                    URLQueryItem(name: "limit", value: limit)
+                    URLQueryItem(name: "limit", value: "10")
             ]
             
-        case .getBondsWith(let query):
-            return [URLQueryItem(name: "page", value: "1"),
-                    URLQueryItem(name: "limit", value: "6"),
+        case .getBondsWith(let query, let page):
+            return [URLQueryItem(name: "page", value: page),
+                    URLQueryItem(name: "limit", value: "10"),
                     URLQueryItem(name: "distinct", value: "true"),
                     URLQueryItem(name: "areFilterOptionsPassed", value: "true"),
                     URLQueryItem(name: "issuerName", value: query)

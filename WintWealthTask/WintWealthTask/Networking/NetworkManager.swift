@@ -22,6 +22,7 @@ struct NetworkManager {
         components.queryItems = endpoint.parameters
         
         guard let url = components.url else { return }
+        print(url)
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = endpoint.method

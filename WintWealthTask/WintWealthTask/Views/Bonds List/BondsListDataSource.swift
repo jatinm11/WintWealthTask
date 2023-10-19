@@ -13,6 +13,15 @@ class BondsListDataSource: NSObject, UITableViewDataSource {
     
     var bondsList: [Bond] = []
     
+    func setSearchList(list: [Bond]) {
+        if !bondsList.isEmpty {
+            self.bondsList = list
+        }
+        else {
+            self.bondsList.append(contentsOf: list)
+        }
+    }
+    
     func setBondsList(list: [Bond]) {
         self.bondsList.append(contentsOf: list)
     }

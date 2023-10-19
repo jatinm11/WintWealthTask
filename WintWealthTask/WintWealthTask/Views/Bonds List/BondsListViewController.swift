@@ -18,13 +18,13 @@ class BondsListViewController: UIViewController, UITableViewDelegate {
     var viewModel: BondsListViewModel = BondsListViewModel()
     var dataSource = BondsListDataSource()
     
-    var currentPage = 1
     var searchPlaceholderView: UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupViews()
+        handleViewModelCallback()
     }
     
     func setupViews() {
@@ -36,47 +36,47 @@ class BondsListViewController: UIViewController, UITableViewDelegate {
         self.tableView.dataSource = self.dataSource
         self.dataSource.footerCellDelegate = self
         
-        self.fetchBondsFor(page: self.currentPage)
-        
         self.searchBar.delegate = self
+        
+        viewModel.fetchBondsList()
     }
     
-    func fetchBondsFor(page: Int, query: String? = nil) {
+    func handleViewModelCallback() {
         
-        viewModel.fetchBondsListFor(page: "\(page)")
-        
-        if let query = query {
-            viewModel.fetchBondsListFor(query: query)
-        }
-        else {
-            viewModel.fetchBondsListFor(page: "\(currentPage)")
-        }
-
         viewModel.updateUI = { [weak self] bondsList, error in
+            
+            guard let self = self else { return }
             
             if let bondsList = bondsList {
                 DispatchQueue.main.async {
-                    
-                    self?.dataSource.setBondsList(list: bondsList)
-                    
-                    if self?.searchPlaceholderView != nil {
-                        self?.searchPlaceholderView?.removeFromSuperview()
-                        self?.searchPlaceholderView = nil
-                    }
-                    
-                    self?.tableView.reloadData()
-                    self?.currentPage += 1
-                    self?.activityIndicator.stopAnimating()
-                    
-                    if bondsList.isEmpty {
-                        self?.totalResultsLabel.text = " No results found ☹️"
-                    }
-                    else {
-                        self?.totalResultsLabel.text = "Showing \(bondsList[0].totalBonds ?? 10) bonds 🚀"
-                    }
+                    self.dataSource.setBondsList(list: bondsList)
+                    self.tableView.reloadData()
+                    self.activityIndicator.stopAnimating()
+                    self.totalResultsLabel.text = self.viewModel.totalResultsLabelText!
                 }
             }
+            
+            if let _ = error {
+                self.totalResultsLabel.text = self.viewModel.totalResultsLabelText!
+                self.activityIndicator.stopAnimating()
+                self.tableView.reloadData()
+            }
         }
+    }
+    
+    func showPlaceholderView() {
+        searchPlaceholderView = UIView(frame: CGRect(x: 0, y: 110, width: self.view.frame.width, height: self.tableView.frame.height))
+        searchPlaceholderView!.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+        self.tableView.addSubview(searchPlaceholderView!)
+    }
+    
+    func hidePlaceholderView() {
+        if self.searchPlaceholderView != nil {
+            self.searchPlaceholderView?.removeFromSuperview()
+            self.searchPlaceholderView = nil
+        }
+        self.view.endEditing(true)
+        self.searchBar.showsCancelButton = !self.searchBar.showsCancelButton
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -88,9 +88,8 @@ class BondsListViewController: UIViewController, UITableViewDelegate {
 extension BondsListViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchPlaceholderView = UIView(frame: CGRect(x: 0, y: 110, width: self.view.frame.width, height: self.tableView.frame.height))
-        searchPlaceholderView!.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-        self.tableView.addSubview(searchPlaceholderView!)
+        self.searchBar.showsCancelButton = true
+        self.showPlaceholderView()
     }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -98,15 +97,24 @@ extension BondsListViewController: UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.totalResultsLabel.text = "Searching for \(searchBar.searchTextField.text ?? "")... ⌛️"
-        self.dataSource.clearList()
-        viewModel.fetchBondsListFor(query: searchBar.searchTextField.text ?? "")
-        self.view.endEditing(true)
+        if let query = searchBar.searchTextField.text, query != "" {
+            self.totalResultsLabel.text = "Searching for \(query)... ⌛️"
+            self.dataSource.clearList()
+            self.viewModel.searchBonds(with: query)
+            self.hidePlaceholderView()
+        }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.viewModel.clearCurrentQuery()
+        self.totalResultsLabel.text = self.viewModel.totalResultsLabelText
+        self.searchBar.searchTextField.text = ""
+        self.hidePlaceholderView()
     }
 }
 
 extension BondsListViewController: FooterCellDelegate {
     func didTapLoadMore() {
-        self.fetchBondsFor(page: self.currentPage)
+        self.viewModel.loadMoreBonds()
     }
 }
