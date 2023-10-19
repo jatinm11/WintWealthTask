@@ -13,10 +13,16 @@ struct BondDetailResponse: Codable {
 
     let primaryDetails: [DetailObject]
     let secondaryDetails: [DetailObject]
+    
     let faqs: [DetailObject]
 }
 
 struct DetailObject: Codable {
     let key: String
     let value: String?
+}
+
+struct FAQObject {
+    var faqItem: DetailObject
+    var isExpanded: Bool
 }

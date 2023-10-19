@@ -21,3 +21,12 @@ extension String {
         return dateFormatter.string(from: serverFormat)
     }
 }
+
+extension Double {
+    func withCommas() -> String {
+        let numberFomatter = NumberFormatter()
+        numberFomatter.numberStyle = .decimal
+        numberFomatter.locale = Locale(identifier: "en_IN")
+        return numberFomatter.string(from: NSNumber(value: self)) ?? "0.0"
+    }
+}

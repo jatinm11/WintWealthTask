@@ -27,33 +27,11 @@ class FAQCell: UITableViewCell {
         }
     }
     
-    var isExpanded: Bool = false {
-        didSet {
-            faqValueView.isHidden = !isExpanded
-            chevronImageView.image = UIImage(systemName: isExpanded ? "chevron.up" : "chevron.down")
-        }
-    }
-    
     var delegate: FAQCellDelegate!
     var indexPath: IndexPath!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.setupGesture()
-        
-        self.faqValueView.isHidden = true
-    }
-    
-    func setupGesture() {        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(toggleValueView(_:)))
-        tapGesture.numberOfTapsRequired = 1
-        faqKeyView.addGestureRecognizer(tapGesture)
-        faqKeyView.isUserInteractionEnabled = true
-    }
-
-    @objc func toggleValueView(_ sender: UITapGestureRecognizer) {
-        isExpanded = !isExpanded
-        delegate.didTapViewFor(index: self.indexPath, cell: self)
     }
     
     func updateViews() {

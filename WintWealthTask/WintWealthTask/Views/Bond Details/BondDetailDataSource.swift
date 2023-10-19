@@ -66,25 +66,31 @@ class BondDetailCollectionViewDataSource: NSObject, UICollectionViewDataSource {
 }
 
 
-class BondDetailTableViewDataSource: NSObject, UITableViewDataSource {
+class BondDetailTableViewDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     
-    var faqDetails: [DetailObject] = []
+    var faqObjects: [FAQObject] = []
+    
     var delegate: FAQCellDelegate!
     
-    func setFaqDetailsWith(list: [DetailObject]) {
-        self.faqDetails = list
+    func setFaqObjectsWith(list: [FAQObject]) {
+        self.faqObjects = list
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return faqDetails.count
+        return faqObjects.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "FAQCell", for: indexPath) as! FAQCell
-        cell.faqItemObject = faqDetails[indexPath.row]
+        
+        cell.faqItemObject = faqObjects[indexPath.row].faqItem
         cell.delegate = delegate
         cell.indexPath = indexPath
-                
+        
+        cell.faqValueView.isHidden = !faqObjects[indexPath.row].isExpanded
+        cell.chevronImageView.image = UIImage(systemName: faqObjects[indexPath.row].isExpanded ? "chevron.up" : "chevron.down")
+        
         return cell
     }
 }

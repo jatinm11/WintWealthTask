@@ -19,8 +19,6 @@ class BondDetailViewController: UIViewController {
     var bondDetailCollectionViewDataSource = BondDetailCollectionViewDataSource()
     var bondDetailTableViewDataSource = BondDetailTableViewDataSource()
     
-    var expandedIndexPaths: [IndexPath] = []
-    
     var isin: String!
     
     override func viewDidLoad() {
@@ -41,7 +39,9 @@ class BondDetailViewController: UIViewController {
     
     func setupTableView() {
         self.tableView.register(UINib(nibName: "FAQCell", bundle: nil), forCellReuseIdentifier: "FAQCell")
+        
         self.tableView.dataSource = self.bondDetailTableViewDataSource
+        self.tableView.delegate = self
         
         self.bondDetailTableViewDataSource.delegate = self
     }
@@ -60,7 +60,11 @@ class BondDetailViewController: UIViewController {
                     self?.collectionViewHeightConstraint.constant = CGFloat((bondDetailsResponse.primaryDetails.count + bondDetailsResponse.secondaryDetails.count) * 50 - 25)
                     self?.collectionView.reloadData()
                     
-                    self?.bondDetailTableViewDataSource.setFaqDetailsWith(list: bondDetailsResponse.faqs)
+                    
+                    var customFAQs: [FAQObject] = []
+                    bondDetailsResponse.faqs.forEach({ customFAQs.append(FAQObject(faqItem: $0, isExpanded: false)) })
+                    self?.bondDetailTableViewDataSource.setFaqObjectsWith(list: customFAQs)
+                    
                     self?.tableViewHeightConstraint.constant = CGFloat(bondDetailsResponse.faqs.count * 70)
                     self?.tableView.reloadData()
                 }
@@ -99,8 +103,21 @@ extension BondDetailViewController: UICollectionViewDelegate, UICollectionViewDe
     }
 }
 
-extension BondDetailViewController: FAQCellDelegate {
+extension BondDetailViewController: FAQCellDelegate, UITableViewDelegate {
+    
     func didTapViewFor(index: IndexPath, cell: FAQCell) {
-        self.tableView.reloadRows(at: [index], with: .none)
+        
+        var item = self.bondDetailTableViewDataSource.faqObjects[index.row]
+        item.isExpanded = !item.isExpanded
+        self.bondDetailTableViewDataSource.faqObjects[index.row] = item
+        
+        tableView.beginUpdates()
+        tableView.reloadRows(at: [index], with: .none)
+        tableView.endUpdates()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FAQCell", for: indexPath) as! FAQCell
+        didTapViewFor(index: indexPath, cell: cell)
     }
 }

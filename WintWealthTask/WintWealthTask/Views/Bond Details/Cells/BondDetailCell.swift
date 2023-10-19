@@ -21,7 +21,18 @@ class BondDetailCell: UICollectionViewCell {
     func updateViews() {
         if let detailObject = detailObject {
             self.keyLabel.text = detailObject.key
-            self.valueLabel.text = detailObject.value ?? "N/A"
+            
+            if let value = detailObject.value {
+                if let doubleValue = Double(value) {
+                    self.valueLabel.text = "₹\(doubleValue.withCommas())"
+                }
+                else {
+                    self.valueLabel.text = value
+                }
+            }
+            else {
+                self.valueLabel.text = "N/A"
+            }
         }
     }
 }
