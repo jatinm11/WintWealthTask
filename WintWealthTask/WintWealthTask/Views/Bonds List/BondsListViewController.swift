@@ -41,6 +41,12 @@ class BondsListViewController: UIViewController, UITableViewDelegate {
         viewModel.fetchBondsList()
     }
     
+    func setViewValues() {
+        self.totalResultsLabel.text = self.viewModel.totalResultsLabelText!
+        self.activityIndicator.stopAnimating()
+        self.tableView.reloadData()
+    }
+    
     func handleViewModelCallback() {
         
         viewModel.updateUI = { [weak self] bondsList, error in
@@ -50,24 +56,20 @@ class BondsListViewController: UIViewController, UITableViewDelegate {
             if let bondsList = bondsList {
                 DispatchQueue.main.async {
                     self.dataSource.setBondsList(list: bondsList)
-                    self.tableView.reloadData()
-                    self.activityIndicator.stopAnimating()
-                    self.totalResultsLabel.text = self.viewModel.totalResultsLabelText!
+                    self.setViewValues()
                 }
             }
             
             if let _ = error {
                 DispatchQueue.main.async {
-                    self.totalResultsLabel.text = self.viewModel.totalResultsLabelText!
-                    self.activityIndicator.stopAnimating()
-                    self.tableView.reloadData()
+                    self.setViewValues()
                 }
             }
             
             self.dataSource.loadMoreIsEnabled = viewModel.showLoadMoreButton! == true
         }
     }
-    
+        
     func showPlaceholderView() {
         searchPlaceholderView = UIView(frame: CGRect(x: 0, y: 110, width: self.view.frame.width, height: self.view.frame.height))
         searchPlaceholderView!.backgroundColor = UIColor.black.withAlphaComponent(0.8)
