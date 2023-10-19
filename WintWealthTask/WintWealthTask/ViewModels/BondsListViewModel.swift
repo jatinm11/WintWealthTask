@@ -14,9 +14,11 @@ class BondsListViewModel {
     private var currentPage = 1
     private var currentQuery: String?
     
+    var showLoadMoreButton: Bool? = true
     var totalResultsLabelText: String?
     
     func fetchBondsList(page: Int? = 1, query: String? = nil) {
+        
         var endPoint: AllBondsEndpont!
         if let query = query {
             endPoint = AllBondsEndpont.getBondsWith(query: query, page: "\(currentPage)")
@@ -26,12 +28,14 @@ class BondsListViewModel {
         }
         
         NetworkManager.shared.request(endpoint: endPoint) { [weak self] (result: Result<[Bond], Error>) in
+            
             switch result {
             case .success(let bondsList):
                 if !bondsList.isEmpty {
                     self?.updateUI?(bondsList, nil)
                     self?.currentPage += 1
                     self?.totalResultsLabelText = "Showing \(bondsList[0].totalBonds ?? 10) bonds 🚀"
+                    self?.showLoadMoreButton = true
                 }
                 else {
                     var errorDescription = ""
@@ -43,11 +47,13 @@ class BondsListViewModel {
                     }
                     
                     self?.totalResultsLabelText = errorDescription
+                    self?.showLoadMoreButton = false
                     self?.updateUI?(nil, NSError(domain: "", code: 404))
                 }
                 
             case .failure(let error):
                 self?.totalResultsLabelText = "Unable to load bonds at the moment ☹️"
+                self?.showLoadMoreButton = false
                 self?.updateUI?(nil, error)
             }
         }

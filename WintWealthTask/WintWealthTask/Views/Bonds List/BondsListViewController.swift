@@ -19,6 +19,7 @@ class BondsListViewController: UIViewController, UITableViewDelegate {
     var dataSource = BondsListDataSource()
     
     var searchPlaceholderView: UIView?
+    var isLoading: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +46,7 @@ class BondsListViewController: UIViewController, UITableViewDelegate {
         
         viewModel.updateUI = { [weak self] bondsList, error in
             
+            self?.isLoading = false
             guard let self = self else { return }
             
             if let bondsList = bondsList {
@@ -61,6 +63,8 @@ class BondsListViewController: UIViewController, UITableViewDelegate {
                 self.activityIndicator.stopAnimating()
                 self.tableView.reloadData()
             }
+            
+            self.dataSource.loadMoreIsEnabled = viewModel.showLoadMoreButton! == true
         }
     }
     
@@ -80,6 +84,7 @@ class BondsListViewController: UIViewController, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.section == 1 else { return }
         let selectedIsin = self.dataSource.bondsList[indexPath.row].isin
         self.navigationController?.pushViewController(BondDetailViewController.controller(isin: selectedIsin), animated: true)
     }

@@ -10,8 +10,10 @@ import UIKit
 class BondsListDataSource: NSObject, UITableViewDataSource {
     
     var footerCellDelegate: FooterCellDelegate!
-    
+
     var bondsList: [Bond] = []
+
+    var loadMoreIsEnabled: Bool?
     
     func setSearchList(list: [Bond]) {
         if !bondsList.isEmpty {
@@ -59,7 +61,8 @@ class BondsListDataSource: NSObject, UITableViewDataSource {
             
         case 2:
             let loadMoreCell = tableView.dequeueReusableCell(withIdentifier: "LoadMoreCell") as! LoadMoreCell
-            loadMoreCell.footerCellDelegate = footerCellDelegate
+            loadMoreCell.footerCellDelegate = footerCellDelegate            
+            loadMoreCell.isButtonEnabled = loadMoreIsEnabled ?? true
             return loadMoreCell
             
         default:
