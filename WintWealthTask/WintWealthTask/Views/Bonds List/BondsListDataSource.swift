@@ -10,20 +10,9 @@ import UIKit
 class BondsListDataSource: NSObject, UITableViewDataSource {
     
     var footerCellDelegate: FooterCellDelegate!
-
     var bondsList: [Bond] = []
-
     var loadMoreIsEnabled: Bool?
-    
-    func setSearchList(list: [Bond]) {
-        if !bondsList.isEmpty {
-            self.bondsList = list
-        }
-        else {
-            self.bondsList.append(contentsOf: list)
-        }
-    }
-    
+       
     func setBondsList(list: [Bond]) {
         self.bondsList.append(contentsOf: list)
     }
