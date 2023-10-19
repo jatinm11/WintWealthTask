@@ -15,6 +15,9 @@ class BondDetailViewController: UIViewController {
     @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var scrollView: UIScrollView!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var faqPlaceholderLabel: UILabel!
+    
     var viewModel = BondDetailsViewModel()
     var bondDetailCollectionViewDataSource = BondDetailCollectionViewDataSource()
     var bondDetailTableViewDataSource = BondDetailTableViewDataSource()
@@ -44,6 +47,7 @@ class BondDetailViewController: UIViewController {
         self.tableView.delegate = self
         
         self.bondDetailTableViewDataSource.delegate = self
+        self.faqPlaceholderLabel.isHidden = true
     }
     
     func setupViews() {
@@ -55,16 +59,19 @@ class BondDetailViewController: UIViewController {
         viewModel.updateUI = { [weak self] bondDetailsResponse, error in
             if let bondDetailsResponse = bondDetailsResponse {
                 DispatchQueue.main.async {
+                    
+                    self?.activityIndicator.stopAnimating()
+                    
                     self?.bondDetailCollectionViewDataSource.setPrimaryDetailsWith(list: bondDetailsResponse.primaryDetails)
                     self?.bondDetailCollectionViewDataSource.setSecondaryDetailsWith(list: bondDetailsResponse.secondaryDetails)
                     self?.collectionViewHeightConstraint.constant = CGFloat((bondDetailsResponse.primaryDetails.count + bondDetailsResponse.secondaryDetails.count) * 50 - 25)
                     self?.collectionView.reloadData()
                     
-                    
                     var customFAQs: [FAQObject] = []
                     bondDetailsResponse.faqs.forEach({ customFAQs.append(FAQObject(faqItem: $0, isExpanded: false)) })
                     self?.bondDetailTableViewDataSource.setFaqObjectsWith(list: customFAQs)
                     
+                    self?.faqPlaceholderLabel.isHidden = false
                     self?.tableViewHeightConstraint.constant = CGFloat(bondDetailsResponse.faqs.count * 70)
                     self?.tableView.reloadData()
                 }

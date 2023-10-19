@@ -57,9 +57,11 @@ class BondsListViewController: UIViewController, UITableViewDelegate {
             }
             
             if let _ = error {
-                self.totalResultsLabel.text = self.viewModel.totalResultsLabelText!
-                self.activityIndicator.stopAnimating()
-                self.tableView.reloadData()
+                DispatchQueue.main.async {
+                    self.totalResultsLabel.text = self.viewModel.totalResultsLabelText!
+                    self.activityIndicator.stopAnimating()
+                    self.tableView.reloadData()
+                }
             }
             
             self.dataSource.loadMoreIsEnabled = viewModel.showLoadMoreButton! == true

@@ -57,7 +57,7 @@ class BondDetailCollectionViewDataSource: NSObject, UICollectionViewDataSource {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
             let titleHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "TitleHeaderView", for: indexPath) as! TitleHeaderView
-            titleHeaderView.titleLabel.text = "Bond Key Highlights"
+            titleHeaderView.titleLabel.text = self.secondaryDetails.count > 0 ? "Bond Key Highlights" : ""
             return titleHeaderView
         default:
             return UICollectionReusableView()

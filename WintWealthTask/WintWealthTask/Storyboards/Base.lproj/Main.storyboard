@@ -160,6 +160,9 @@
                                     <constraint firstItem="lFy-vW-Wgd" firstAttribute="top" secondItem="3s9-Y8-by8" secondAttribute="top" id="xJL-st-AkC"/>
                                 </constraints>
                             </scrollView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="LM4-pG-ace">
+                                <rect key="frame" x="186.66666666666666" y="416" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zdb-0G-A6Z"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
@@ -167,13 +170,17 @@
                             <constraint firstItem="3s9-Y8-by8" firstAttribute="leading" secondItem="zdb-0G-A6Z" secondAttribute="leading" id="1pA-xi-c1A"/>
                             <constraint firstItem="lFy-vW-Wgd" firstAttribute="width" secondItem="Wuo-fm-Fjw" secondAttribute="width" id="BJ5-qy-ZSX"/>
                             <constraint firstItem="3s9-Y8-by8" firstAttribute="top" secondItem="zdb-0G-A6Z" secondAttribute="top" id="Fft-Y6-z38"/>
+                            <constraint firstItem="LM4-pG-ace" firstAttribute="centerX" secondItem="Wuo-fm-Fjw" secondAttribute="centerX" id="MoU-js-0iP"/>
+                            <constraint firstItem="LM4-pG-ace" firstAttribute="centerY" secondItem="Wuo-fm-Fjw" secondAttribute="centerY" id="V3L-RF-QdY"/>
                             <constraint firstAttribute="bottom" secondItem="3s9-Y8-by8" secondAttribute="bottom" id="d5b-oK-Rlu"/>
                             <constraint firstItem="3s9-Y8-by8" firstAttribute="trailing" secondItem="zdb-0G-A6Z" secondAttribute="trailing" id="vFO-5h-fWF"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="LM4-pG-ace" id="7K3-if-qZH"/>
                         <outlet property="collectionView" destination="RON-21-Sk7" id="0zk-8S-Y77"/>
                         <outlet property="collectionViewHeightConstraint" destination="UCK-Qv-q3n" id="y0o-Ww-rjz"/>
+                        <outlet property="faqPlaceholderLabel" destination="FJ6-QJ-c2k" id="MHc-9Y-Uhn"/>
                         <outlet property="scrollView" destination="3s9-Y8-by8" id="Zwx-Tm-RfK"/>
                         <outlet property="tableView" destination="C9M-Yi-3Oe" id="7qa-nu-vl0"/>
                         <outlet property="tableViewHeightConstraint" destination="2pW-oe-TGG" id="Mph-h6-OJS"/>
