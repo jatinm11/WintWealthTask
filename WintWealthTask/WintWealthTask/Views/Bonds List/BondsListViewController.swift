@@ -19,7 +19,6 @@ class BondsListViewController: UIViewController, UITableViewDelegate {
     var dataSource = BondsListDataSource()
     
     var searchPlaceholderView: UIView?
-    var isLoading: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +45,6 @@ class BondsListViewController: UIViewController, UITableViewDelegate {
         
         viewModel.updateUI = { [weak self] bondsList, error in
             
-            self?.isLoading = false
             guard let self = self else { return }
             
             if let bondsList = bondsList {

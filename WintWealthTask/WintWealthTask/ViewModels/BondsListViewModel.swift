@@ -61,6 +61,7 @@ class BondsListViewModel {
     
     func searchBonds(with query: String) {
         self.currentPage = 1
+        self.showLoadMoreButton = true
         currentQuery = query
         fetchBondsList(page: currentPage, query: query)
     }
